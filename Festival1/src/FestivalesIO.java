@@ -55,8 +55,9 @@ public class FestivalesIO {
             if (!palabra.isEmpty()){
                 palabra = palabra.substring(0,1).toUpperCase() + palabra.substring(1).toLowerCase();
             }
-            nombre = nombreFormateado.append(palabra).append(" ").toString().trim();
+                nombreFormateado.append(palabra).append(" ");
         }
+        nombre = nombreFormateado.toString().trim();
         lugar = festival[1].trim().toUpperCase();
         fechaIni = LocalDate.parse(festival[2].trim(), DateTimeFormatter.ofPattern("dd-MM-yyyy"));
         duracion = Integer.parseInt(festival[3].trim());

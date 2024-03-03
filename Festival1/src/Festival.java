@@ -34,7 +34,6 @@ public class Festival {
     public String getNombre() {
         return nombre;
     }
-
     public String getLugar() {
         return lugar;
     }
@@ -104,15 +103,15 @@ public class Festival {
         StringBuilder sb = new StringBuilder();
         sb.append(this.nombre).append("\t\t ").append(estilos).append("\n").append(lugar.toUpperCase()).append("\n");
         LocalDate fechaActual = LocalDate.now();
-        String fechaInicioFormateada = this.fechaInicio.format(DateTimeFormatter.ofPattern("dd MMM. yyyy"));
-        String fechaInicioFormateadaSinAno = this.fechaInicio.format(DateTimeFormatter.ofPattern("dd MMM."));
+        String fechaInicioFormateada = this.fechaInicio.format(DateTimeFormatter.ofPattern("dd MMM yyyy"));
+        String fechaInicioFormateadaSinAno = this.fechaInicio.format(DateTimeFormatter.ofPattern("dd MMM"));
         LocalDate fechafin = fechaInicio.plusDays(duracion);
-        String fechaFinFormateada = fechafin.format(DateTimeFormatter.ofPattern("dd MMM. yyyy"));
+        String fechaFinFormateada = fechafin.format(DateTimeFormatter.ofPattern("dd MMM yyyy"));
 
         if (duracion == 1) {
             sb.append(fechaInicioFormateada);
         } else {
-            sb.append(fechaInicioFormateadaSinAno +" - " + fechaFinFormateada);
+            sb.append(fechaInicioFormateadaSinAno).append(" - ").append(fechaFinFormateada);
         }
         if (haConcluido()){
             sb.append(" (concluido)");
@@ -120,7 +119,7 @@ public class Festival {
             sb.append("(ON)");
         }else {
             sb.append(" (quedan " + ChronoUnit.DAYS.between(LocalDate.now(),fechaInicio) + " dias)");
-        }sb.append("\n----------------------------------------------------");
+        }sb.append("\n----------------------------------------------------\n");
         return sb.toString();
     }
     /**
