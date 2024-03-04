@@ -8,14 +8,14 @@ import java.util.*;
  * Esta clase guarda una agenda con los festivales programados
  * en una serie de meses
  *
- * La agenda guardalos festivales en una colección map
+ * La agenda guardalos festivales en una colecci?n map
  * La clave del map es el mes (un enumerado festivales.modelo.Mes)
- * Cada mes tiene asociados en una colección ArrayList
+ * Cada mes tiene asociados en una colecci?n ArrayList
  * los festivales  de ese mes
  *
- * Solo aparecen los meses que incluyen algún festival
+ * Solo aparecen los meses que incluyen alg?n festival
  *
- * Las claves se recuperan en orden alfabéico
+ * Las claves se recuperan en orden alfab?ico
  *
  */
 public class AgendaFestivales {
@@ -25,16 +25,16 @@ public class AgendaFestivales {
         this.agenda = new TreeMap<>();
     }
     /**
-     * añade un nuevo festival a la agenda
+     * a?ade un nuevo festival a la agenda
      *
      * Si la clave (el mes en el que se celebra el festival)
-     * no existe en la agenda se creará una nueva entrada
-     * con dicha clave y la colección formada por ese único festival
+     * no existe en la agenda se crear? una nueva entrada
+     * con dicha clave y la colecci?n formada por ese ?nico festival
      *
-     * Si la clave (el mes) ya existe se añade el nuevo festival
+     * Si la clave (el mes) ya existe se a?ade el nuevo festival
      * a la lista de festivales que ya existe ese ms
-     * insertándolo de forma que quede ordenado por nombre de festival.
-     * Para este segundo caso usa el método de ayuda
+     * insert?ndolo de forma que quede ordenado por nombre de festival.
+     * Para este segundo caso usa el metodo de ayuda
      * obtenerPosicionDeInsercion()
      *
      */
@@ -53,7 +53,7 @@ public class AgendaFestivales {
      *
      * @param festivales una lista de festivales
      * @param festival
-     * @return la posición en la que debería ir el nuevo festival
+     * @return la posici?n en la que deber?a ir el nuevo festival
      * de forma que la lista quedase ordenada por nombre
      */
     private int obtenerPosicionDeInsercion(ArrayList<Festival> festivales, Festival festival) {
@@ -72,7 +72,7 @@ public class AgendaFestivales {
     }
 
     /**
-     * Representación textual del festival
+     * Representaci?n textual del festival
      * De forma eficiente
      *  Usa el conjunto de entradas para recorrer el map
      */
@@ -109,7 +109,7 @@ public class AgendaFestivales {
     /**
      * Se trata de agrupar todos los festivales de la agenda
      * por estilo.
-     * Cada estilo que aparece en la agenda tiene asociada una colección
+     * Cada estilo que aparece en la agenda tiene asociada una colecci?n
      * que es el conjunto de nombres de festivales que pertenecen a ese estilo
      * Importa el orden de los nombres en el conjunto
      *
@@ -155,7 +155,7 @@ public class AgendaFestivales {
         ArrayList<Festival> festivales = this.agenda.get(mes);
         int contadorBorrados = 0;
 
-        if (festivales == null) {
+        if (festivales.isEmpty()) {
             return -1;
         }
         Iterator<Festival> it = festivales.iterator();
